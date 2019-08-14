@@ -25,15 +25,16 @@
  * Time: 3:24 AM
  */
 /* add log4php folders to include path */
-$inc_base = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'log4php';
-$add_path = $inc_base . PATH_SEPARATOR;
-$add_path .= $inc_base . DIRECTORY_SEPARATOR . 'appenders' . PATH_SEPARATOR;
-$add_path .= $inc_base . DIRECTORY_SEPARATOR . 'configurators' . PATH_SEPARATOR;
-$add_path .= $inc_base . DIRECTORY_SEPARATOR . 'filters' . PATH_SEPARATOR;
-$add_path .= $inc_base . DIRECTORY_SEPARATOR . 'helpers' . PATH_SEPARATOR;
-$add_path .= $inc_base . DIRECTORY_SEPARATOR . 'layouts' . PATH_SEPARATOR;
-$add_path .= $inc_base . DIRECTORY_SEPARATOR . 'renderers';
-set_include_path(get_include_path() . PATH_SEPARATOR . $add_path);
+$inc_base = Mage::getBaseDir('lib') . DS . 'Log4php';
+$add_path = $inc_base . PS;
+$add_path .= $inc_base . DS . 'appenders' . PS;
+$add_path .= $inc_base . DS . 'configurators' . PS;
+$add_path .= $inc_base . DS . 'filters' . PS;
+$add_path .= $inc_base . DS . 'helpers' . PS;
+$add_path .= $inc_base . DS . 'pattern' . PS;
+$add_path .= $inc_base . DS . 'layouts' . PS;
+$add_path .= $inc_base . DS . 'renderers';
+set_include_path(get_include_path() . PS . $add_path);
 //
 class Nmmlm_Log_Logger extends Logger
 {
@@ -42,7 +43,9 @@ class Nmmlm_Log_Logger extends Logger
     /**
      * Override getter to use '$log = Nmmlm_Log_Logger::getLogger($this)' form in Mage classes.
      * @static
+     *
      * @param string $name
+     *
      * @return Logger
      */
     public static function getLogger($name)
@@ -62,7 +65,7 @@ class Nmmlm_Log_Logger extends Logger
     private static function initMageLogger()
     {
         $dir = Mage::getBaseDir('base');
-        $file = $dir . DIRECTORY_SEPARATOR . Nmmlm_Log_Logger::cfgLog4phpConfigFile();
+        $file = $dir . DS . Nmmlm_Log_Logger::cfgLog4phpConfigFile();
         Nmmlm_Log_Logger::configure($file);
         Nmmlm_Log_Logger::$isInitialized = true;
     }
@@ -85,7 +88,9 @@ class Nmmlm_Log_Logger extends Logger
     /**
      * Convert Magento style package (Company_Module_Directory_Class) to log4php style package (Company.Module.Directory.Class).
      * @static
+     *
      * @param $name
+     *
      * @return mixed
      */
     private static function rewriteName($name)
