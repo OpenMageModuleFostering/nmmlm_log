@@ -24,7 +24,7 @@
 <config>
     <modules>
         <Nmmlm_Log>
-            <version>0.2.0</version>
+            <version>0.2.1</version>
         </Nmmlm_Log>
     </modules>
     <adminhtml>
