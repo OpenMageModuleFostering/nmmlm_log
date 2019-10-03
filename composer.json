@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/nmmlm_log",
+    "name": "OpenMageModuleFostering\/nmmlm_log",
     "type": "magento-module",
     "license": "Apache-Software-License",
     "homepage": "",
     "description": "Magento wrapper for Apache log4php logging framework. This logger adds flexible control to your logs.",
     "authors": [
-    {
-        "name": "Alex",
-        "email": "alex@nmmlm.com"
-    }
-],
+        {
+            "name": "Alex",
+            "email": "alex@nmmlm.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
